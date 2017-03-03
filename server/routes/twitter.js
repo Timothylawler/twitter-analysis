@@ -70,7 +70,7 @@ twitter.get("/search", function(req, res){
 				this.relevantShit = [];
 				let parse = data.statuses.map(function(item, i){
 					return new Promise(function(resolve){
-						
+						let parseSelf = this;
 						let tweet = {
 							created: item.created_at,
 							text : item.text,
@@ -84,20 +84,27 @@ twitter.get("/search", function(req, res){
 							favorites : item.favorite_count,
 							retweets : item.retweet_count,
 						}
-						self.relevantShit.push(tweet);
-						resolve();
+						
+						//	Call to analyse the text right away
+						analyseSentiment(item.text).then(function(result){
+							if(result.status == 200){
+								tweet.sentiment = result.data;
+							} else{
+								tweet.sentiment = "N/A";
+							}
+							self.relevantShit.push(tweet);
+							resolve();
+						});
 					});
 				});
 				
-				//	call to get analyse
-				
+				//	return when done with the stuff above. nice comment bruh
 				Promise.all(parse).then(function(){
 					//res.end(JSON.stringify(self.boards));
 					console.log(self.relevantShit);
 					res.send(relevantShit);	
 				});
-				//console.log(relevantShit);
-				//console.log("Error: ", error);
+
 			} else{
 				console.log("Error: ", error);
 				res.status(500).send("error connecting to twitter")
@@ -123,7 +130,7 @@ twitter.get("/testRoute", function(req, res){
 
 /*	call aylient/sentiment to analyse passed data based on sentiment	*/
 function analyseSentiment(data){
-	return new Promise( function(fulfill, reject){
+	return new Promise(function(fulfill, reject){
 		try{
 			request.get("http://localhost:4000/aylien/sentiment", data, function(error, response, data){
 				console.log("Error: ", error);

@@ -30,7 +30,8 @@ aylien.get("/test", function(req, res){
 });
 
 aylien.get("/sentiment", function(req, res){
-	console.log("In aylien/sentiment");
+	var text = req.query.text;
+	
 	res.send(JSON.stringify(
 		{
 			status: "200", 
