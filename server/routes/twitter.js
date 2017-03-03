@@ -1,9 +1,7 @@
 var express = require("express");
-const querystring = require('querystring');
-
 var twitter = express.Router();
 
-
+const request = require('request');
 const Twitter = require('twitter');
 
 
@@ -64,13 +62,42 @@ twitter.get("/search", function(req, res){
 			q : params.q
 		}
 		console.log(params);
-		//params.q = querystring.stringify(q);
 		
-		//var query = querystring.stringify(params);
 		client.get("search/tweets.json" , params, function(error, data, response){
 			if(response.statusCode == 200){
-				res.send(data);	
-				console.log("Error: ", error);
+				var self = this;
+				//	Seathe what we want
+				this.relevantShit = [];
+				let parse = data.statuses.map(function(item, i){
+					return new Promise(function(resolve){
+						
+						let tweet = {
+							created: item.created_at,
+							text : item.text,
+							user : {
+								name : item.user.name,
+								screen_name : item.user.screen_name,
+								statuses_count : item.user.statuses_count,
+								profile_image : item.user.profile_image_url,
+								profile_image_https : item.user.profile_image_url_https,
+							},
+							favorites : item.favorite_count,
+							retweets : item.retweet_count,
+						}
+						self.relevantShit.push(tweet);
+						resolve();
+					});
+				});
+				
+				//	call to get analyse
+				
+				Promise.all(parse).then(function(){
+					//res.end(JSON.stringify(self.boards));
+					console.log(self.relevantShit);
+					res.send(relevantShit);	
+				});
+				//console.log(relevantShit);
+				//console.log("Error: ", error);
 			} else{
 				console.log("Error: ", error);
 				res.status(500).send("error connecting to twitter")
@@ -78,16 +105,43 @@ twitter.get("/search", function(req, res){
 			
 			
 		});
-		
-		
-		
 	} else{
 		res.status(400).send("No search term passed");
 	}
+});
+
+twitter.get("/testRoute", function(req, res){
+	var data = req.query.text;
 	
-	
+	analyseSentiment(data).then(function(result){
+		console.log("Promise:", result);
+		if(result.status == 200)
+			res.end(result.data);
+	});
 	
 });
+
+/*	call aylient/sentiment to analyse passed data based on sentiment	*/
+function analyseSentiment(data){
+	return new Promise( function(fulfill, reject){
+		try{
+			request.get("http://localhost:4000/aylien/sentiment", data, function(error, response, data){
+				console.log("Error: ", error);
+				//console.log("Response: ", response);
+				console.log("Data: ", data);
+				if(error){
+					reject({status: "400", data: error});
+				} else{
+					fulfill({status: "200", data: data});
+				}
+			});
+		} catch(ex){
+			reject({status: "400", data: ex});
+		}
+		
+	});
+	
+}
 
 
 

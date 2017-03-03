@@ -6,13 +6,13 @@ var AYLIENTextAPI = require('aylien_textapi');
 
 
 var keys = {
-	key : "074f27884641fb9fa0f53feff62d04bd",
-	appID : "9111ceb8",
+	aylien_key : "074f27884641fb9fa0f53feff62d04bd",
+	aylien_appID : "9111ceb8",
 }
 
 var textapi = new AYLIENTextAPI({
-  application_id: keys.appID,
-  application_key: keys.key
+  application_id: keys.aylien_appID,
+  application_key: keys.aylien_key
 });
 
 aylien.get("/test", function(req, res){
@@ -27,7 +27,16 @@ aylien.get("/test", function(req, res){
 			res.status(400).send("Error: ", error);
 		}
 	});
-	
+});
+
+aylien.get("/sentiment", function(req, res){
+	console.log("In aylien/sentiment");
+	res.send(JSON.stringify(
+		{
+			status: "200", 
+			data:"gg"
+		}
+	));
 });
 
 aylien.get("/", function(req, res){
