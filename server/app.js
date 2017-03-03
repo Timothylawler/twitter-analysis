@@ -28,7 +28,9 @@ var server = app.listen(4000, function(){
 var test = require("./routes/testRoutes.js");
 var twitter = require("./routes/twitter.js");
 var textAnalysis = require("./routes/textAnalysis.js");
+var aylien = require("./routes/aylienTextAnalysis.js");
 
 app.use("/test", test);
 app.use("/twitter", twitter);
 app.use("/analysis", textAnalysis);
+app.use("/aylien", aylien);

@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "async": "^2.1.4",
+    "aylien_textapi": "^0.6.0",
     "body-parser": "^1.16.0",
     "cors": "^2.8.1",
     "express": "^4.14.1",
