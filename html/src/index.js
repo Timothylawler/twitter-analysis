@@ -7,7 +7,7 @@ import { Router, Route, browserHistory } from 'react-router';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import TwitterSignIn from './templates/twitterSignIn/twitterSignIn.jsx';
+import Twitter from './templates/twitter/twitter.jsx';
 import FourOFour from './templates/fourOFour/fourOFour.jsx';
 
 injectTapEventPlugin();
@@ -16,7 +16,8 @@ ReactDOM.render(
   <MuiThemeProvider>
 	<Router history={browserHistory}>
 		<Route path="/" component={App}>
-			<Route path="twitter" component={TwitterSignIn}/>
+			
+			<Route path="twitter" component={Twitter}/>
 			
 	
 			<Route path="*" component={FourOFour}/>

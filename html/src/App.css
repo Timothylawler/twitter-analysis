@@ -2,28 +2,55 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .container{
-	margin-left: 5em;
-	margin-right: 5em;
+	margin-top: 8px;
 }
 
+.padding-lr-12{
+	
+}
+
+.tweet-card{
+	padding: 12px;
+}
+
+.menuAnimation-enter{
+	opacity: 0.01;
+	height: 1px;
+}
+
+.menuAnimation-enter.menuAnimation-enter-active {
+	opacity: 1;
+	height: 100px;
+	transition: all 200ms ease-in;
+}
+
+.menuAnimation-leave{
+	height: 0px;
+}
+
+.menuAnimation-leave.menuAnimation-leave-active {
+  height: -1px;
+  transition: 500ms ease-out all;
+}
+
+.show-hide-fab{
+	position:absolute;
+	bottom: -20px;
+}
+
+.margin-top-24{
+	margin-top:24px;
+}
 
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 75px;
   padding: 20px;
   color: white;
 }
 
-.App-intro {
-  font-size: large;
-}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
