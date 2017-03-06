@@ -88,11 +88,14 @@ twitter.get("/search", function(req, res){
 						//	Call to analyse the text right away
 						analyseSentiment(item.text).then(function(result){
 							if(result.status == 200){
-								tweet.sentiment = result.data;
+								console.log(result.data);
+								tweet.sentiment = JSON.parse(result.data);
+								
 							} else{
 								tweet.sentiment = "N/A";
 							}
 							self.relevantShit.push(tweet);
+							
 							resolve();
 						});
 					});
@@ -101,8 +104,8 @@ twitter.get("/search", function(req, res){
 				//	return when done with the stuff above. nice comment bruh
 				Promise.all(parse).then(function(){
 					//res.end(JSON.stringify(self.boards));
-					console.log(self.relevantShit);
-					res.send(relevantShit);	
+					//console.log(self.relevantShit);
+					res.send(JSON.stringify(relevantShit));	
 				});
 
 			} else{
@@ -130,12 +133,16 @@ twitter.get("/testRoute", function(req, res){
 
 /*	call aylient/sentiment to analyse passed data based on sentiment	*/
 function analyseSentiment(data){
+	const params = {
+		text : data
+	};
 	return new Promise(function(fulfill, reject){
 		try{
-			request.get("http://localhost:4000/aylien/sentiment", data, function(error, response, data){
-				console.log("Error: ", error);
+			console.log("DATA: ", params);
+			request.get({url:"http://localhost:4000/aylien/sentiment", qs: params}, function(error, response, data){
+				//console.log("Error: ", error);
 				//console.log("Response: ", response);
-				console.log("Data: ", data);
+				//console.log("Data: ", data);
 				if(error){
 					reject({status: "400", data: error});
 				} else{

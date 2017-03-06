@@ -1,9 +1,21 @@
 var express = require("express");
-
 var aylien = express.Router();
+var bodyParser = require('body-parser');
 
 var AYLIENTextAPI = require('aylien_textapi');
 
+/** bodyParser.urlencoded(options)
+ * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
+ * and exposes the resulting object (containing the keys and values) on req.body
+ */
+aylien.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+/**bodyParser.json(options)
+ * Parses the text as JSON and exposes the resulting object on req.body.
+ */
+aylien.use(bodyParser.json());
 
 var keys = {
 	aylien_key : "074f27884641fb9fa0f53feff62d04bd",
@@ -20,7 +32,7 @@ aylien.get("/test", function(req, res){
 		'text' : 'John is a very good football player!'
 	}, function(error, response){
 		if(!error){
-			console.log(response);
+			//console.log(response);
 			res.send(response);
 		}	else{
 			console.log(error);
@@ -31,13 +43,21 @@ aylien.get("/test", function(req, res){
 
 aylien.get("/sentiment", function(req, res){
 	var text = req.query.text;
-	
-	res.send(JSON.stringify(
-		{
-			status: "200", 
-			data:"gg"
-		}
-	));
+	if(text != undefined){
+		//	Return sentiment on passed text
+		textapi.sentiment({
+			'text' : text
+		}, function(error, response){
+			if(!error){
+				console.log(response);
+				res.status(200).send(response);
+			} else{
+				res.status(400).send(error);
+			}
+		});
+	} else{
+		res.status(400).send("No text passed to sentiment analysis");
+	}
 });
 
 aylien.get("/", function(req, res){
