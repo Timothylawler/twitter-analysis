@@ -12,6 +12,8 @@ import KeyboardArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-dow
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
+import update from 'react-addons-update';
+
 import {
   Step,
   Stepper,
@@ -28,7 +30,10 @@ const styles = {
 	buttonsStyle: {
 		paddingTop: 12,
 		margin: 24,
-	}
+		marginLeft: 0,
+		marginRight: 0,
+	},
+	
 }
 
 class SearchBar extends Component {
@@ -37,7 +42,12 @@ class SearchBar extends Component {
 		this.state ={
 			finished : false,
 			stepIndex : 0,
-			hidden: true,
+			hidden: false,
+			search:{
+				searchTerm: undefined,
+				searchFrom: undefined,
+				searchTo: undefined,
+			},
 		};
 		this.handleNext = this.handleNext.bind(this);
 		this.handlePrevious = this.handlePrevious.bind(this);
@@ -61,6 +71,22 @@ class SearchBar extends Component {
 		}
 	}
 	
+	updateSearchValue(evt){
+		this.setState({
+			search: update(this.state.search,{searchTerm: {$set: evt.target.value}})
+		});
+	}
+	updateFromValue(evt){
+		this.setState({
+			search: update(this.state.search,{searchFrom: {$set: evt.target.value}})
+		});
+	}
+	updateToValue(evt){
+		this.setState({
+			search: update(this.state.search,{searchTo: {$set: evt.target.value}})
+		});
+	}
+	
 	getStepContent(stepIndex){
 		switch(stepIndex){
 			case 0:
@@ -68,6 +94,8 @@ class SearchBar extends Component {
 					<div className="col-sm-12">
 						eg. Analysing twitter #twitter #analyse
 						<TextField
+							value = {this.state.searchTerm}
+							onChange={this.updateSearchValue.bind(this)}
 							floatingLabelText="Search term, eg. 'analyse #twitter'"
 							fullWidth={true}
 						/>
@@ -80,12 +108,16 @@ class SearchBar extends Component {
 						Tweet to/from: tweets aimed towards/from an account, eg. 'nasa' shows tweets conatining/from @nasa 
 						<div className="col-md-6">
 								<TextField
+									value = {this.state.searchTo}
+									onChange={this.updateToValue.bind(this)}
 									floatingLabelText="tweeted to:"
 									fullWidth={true}
 								/>
 						</div>
 						<div className="col-md-6">
 							<TextField
+								value = {this.state.searchFrom}
+								onChange={this.updateFromValue.bind(this)}
 								floatingLabelText="tweeted from:"
 								fullWidth={true}
 							/>
@@ -114,10 +146,10 @@ class SearchBar extends Component {
 							</div>
 							<div className="col-md-12">
 								<RaisedButton
-									target="_blank"
 									label="Analyse"
 									labelPosition="before"
 									secondary={true}
+									onClick={() => this.props.analyseOnClick({search: this.state.search})}
 									style={styles.button}
 									icon={<KeyboardArrowRight/>}
 								/>
@@ -208,12 +240,14 @@ class SearchBar extends Component {
 						}
 					</ReactCSSTransitionGroup>
 				</div>
-      	<FloatingActionButton 
-      		mini={true} 
+     		
+				<FloatingActionButton 
+					mini={true} 
 					onClick={() => this.setState({hidden: !this.state.hidden})} 
 					className="show-hide-fab">
 					{ this.state.hidden? <KeyboardArrowDown/> : <KeyboardArrowUp/>}
 				</FloatingActionButton>
+
       </Paper>
       
     );

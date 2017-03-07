@@ -14,6 +14,8 @@
 	padding: 12px;
 }
 
+/* MENU ANIMATION */
+
 .menuAnimation-enter{
 	opacity: 0.01;
 	height: 1px;
@@ -34,8 +36,31 @@
   transition: 500ms ease-out all;
 }
 
+/* /MENU ANIMATION */
+
+/* TWEET ANIMATION */
+.tweetAnimation-appear{
+	opacity: 0.1;
+}
+
+.tweetAnimation-appear.tweetAnimation-appear-active{
+	opacity: 1;
+	transition: all 400ms ease-in;
+}
+
+.tweetAnimation-leave{
+	opacity: 1;
+}
+
+.tweetAnimation-leave.tweetAnimation-leave-active{
+	opacity: 0.1;
+	transition: all 200ms ease-in;
+}
+
+/* /TWEET ANIMATION */
+
 .show-hide-fab{
-	position:absolute;
+	position:relative;
 	bottom: -20px;
 }
 

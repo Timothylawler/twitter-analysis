@@ -4,7 +4,7 @@ import Tweet from './tweet.jsx';
 
 import {GridList, GridTile} from 'material-ui/GridList';
 import Subheader from 'material-ui/Subheader';
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 const styles = {
   root: {
@@ -20,25 +20,43 @@ const styles = {
 };
 
 class Tweets extends Component {
+	constructor(props){
+		super(props);
+		this.state= {
+			tweets: props.tweetData
+		}
+		console.log("TWEETS CONSTRUCTOR:" , props);
+	}
+	
   render() {
+		console.log("IN TWEETS: ", this.state.tweets);
+		var tweetComps = this.state.tweets.map(function(item, i){
+			return(
+				<GridTile key={item.id} cols={1}>
+					<Tweet data={item} />
+				</GridTile>
+			);
+		});
+		
     return (
       <div className="">
-				<GridList
-					cellHeight={"auto"}
-					style={styles.gridList}
-					cols={2}
-				>
-					<Subheader>December</Subheader>
-					<GridTile key={1} cols={1}>
-						<Tweet />
-					</GridTile>
-					<GridTile key={2} cols={1}>
-						<Tweet />
-					</GridTile>
-					<GridTile key={3} cols={1}>
-						<Tweet />
-					</GridTile>
-				</GridList>
+      	<ReactCSSTransitionGroup
+					transitionName="tweetAnimation"
+					transitionAppear={true}
+      		transitionAppearTimeout={200}
+					transitionEnterTimeout={400}
+					transitionLeaveTimeout={200}>
+					<GridList
+						key="tweet-gridList"
+						cellHeight={"auto"}
+						style={styles.gridList}
+						cols={2}
+					>
+						<Subheader key="tweet-subHeader">December</Subheader>
+					
+						{tweetComps}
+					</GridList>
+				</ReactCSSTransitionGroup>
       </div>
     );
   }

@@ -13,32 +13,23 @@ const styles = {
 class Tweet extends Component {
   constructor(props){
 		super(props);
+		/* REMOVE THIS WHEN BACK TO SENTIMENT! */
+		let twitStuff = props.data;
+		twitStuff.sentiment = {
+			"polarity": "neutral",
+			"subjectivity": "subjective",
+			"text": "RT @20committee: I'm confident that any SERIOUS investigation of #TrumpRussia will find enough intel to end Trump's admin &amp; send people to…",
+			"polarity_confidence": 0.6273645162582397,
+			"subjectivity_confidence": 1
+		};
+		/**/
 		this.state={
 			hover: false,
-			tweet:{
-				"created": "Mon Mar 06 12:47:34 +0000 2017",
-				"text": "RT @20committee: I'm confident that any SERIOUS investigation of #TrumpRussia will find enough intel to end Trump's admin &amp; send people to…",
-				"user": {
-					"name": "Linda",
-					"screen_name": "exgci",
-					"statuses_count": 82682,
-					"profile_image": "http://pbs.twimg.com/profile_images/796714136013049856/aSWMsTEl_normal.jpg",
-					"profile_image_https": "https://pbs.twimg.com/profile_images/796714136013049856/aSWMsTEl_normal.jpg"
-				},
-				"favorites": 0,
-				"retweets": 3209,
-				"sentiment": {
-					"polarity": "neutral",
-					"subjectivity": "subjective",
-					"text": "RT @20committee: I'm confident that any SERIOUS investigation of #TrumpRussia will find enough intel to end Trump's admin &amp; send people to…",
-					"polarity_confidence": 0.6273645162582397,
-					"subjectivity_confidence": 1
-				}
-			}
+			tweet: props.data,
 		};
 		this.setHover = this.setHover.bind(this);
 		this.setNotHover = this.setNotHover.bind(this);
-
+		
 	}
 	
 	setHover(){
@@ -92,3 +83,25 @@ class Tweet extends Component {
 }
 
 export default Tweet;
+
+/*
+tweet:{
+				"created": "Mon Mar 06 12:47:34 +0000 2017",
+				"text": "RT @20committee: I'm confident that any SERIOUS investigation of #TrumpRussia will find enough intel to end Trump's admin &amp; send people to…",
+				"user": {
+					"name": "Linda",
+					"screen_name": "exgci",
+					"statuses_count": 82682,
+					"profile_image": "http://pbs.twimg.com/profile_images/796714136013049856/aSWMsTEl_normal.jpg",
+					"profile_image_https": "https://pbs.twimg.com/profile_images/796714136013049856/aSWMsTEl_normal.jpg"
+				},
+				"favorites": 0,
+				"retweets": 3209,
+				"sentiment": {
+					"polarity": "neutral",
+					"subjectivity": "subjective",
+					"text": "RT @20committee: I'm confident that any SERIOUS investigation of #TrumpRussia will find enough intel to end Trump's admin &amp; send people to…",
+					"polarity_confidence": 0.6273645162582397,
+					"subjectivity_confidence": 1
+				}
+			}*/

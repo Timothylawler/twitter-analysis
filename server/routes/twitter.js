@@ -67,11 +67,24 @@ twitter.get("/search", function(req, res){
 			if(response.statusCode == 200){
 				var self = this;
 				//	Seathe what we want
-				this.relevantShit = [];
+				this.relevantShit = {};
+				//	Get the meta
+				let metaData = {
+					query: data.search_metadata.query,
+					count: data.search_metadata.count,
+					refresh_url: data.search_metadata.refresh_url,
+					next_results: data.search_metadata.next_results,
+				}
+				this.relevantShit.metadata = metaData;
+				let tweetList = [];
+				this.relevantShit.tweetList = tweetList;
+				
+				//	GET TWEET DATA
 				let parse = data.statuses.map(function(item, i){
 					return new Promise(function(resolve){
 						let parseSelf = this;
 						let tweet = {
+							id : item.id,
 							created: item.created_at,
 							text : item.text,
 							user : {
@@ -86,7 +99,7 @@ twitter.get("/search", function(req, res){
 						}
 						
 						//	Call to analyse the text right away
-						analyseSentiment(item.text).then(function(result){
+						/*analyseSentiment(item.text).then(function(result){
 							if(result.status == 200){
 								console.log(result.data);
 								tweet.sentiment = JSON.parse(result.data);
@@ -95,9 +108,11 @@ twitter.get("/search", function(req, res){
 								tweet.sentiment = "N/A";
 							}
 							self.relevantShit.push(tweet);
-							
 							resolve();
-						});
+							
+						});*/
+							self.relevantShit.tweetList.push(tweet);
+							resolve();
 					});
 				});
 				
