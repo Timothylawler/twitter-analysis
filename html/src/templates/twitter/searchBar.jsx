@@ -257,38 +257,4 @@ class SearchBar extends Component {
 export default SearchBar;
 
 
-/*
-	<div className="col-sm-12">
-						<TextField
-							floatingLabelText="Search term, eg. 'analyse #twitter'"
-							fullWidth={true}
-						/>
-					</div>
-					<div className="col-md-6">
-						<TextField
-							floatingLabelText="tweeted to:"
-							fullWidth={true}
-						/>
-					</div>
-					<div className="col-md-6">
-						<TextField
-							floatingLabelText="tweeted from:"
-							fullWidth={true}
-						/>
-					</div>
-     			<div className="col-md-12">
-     				<div className="col-md-6">
-     					asd
-     				</div>
-     				<div className="col-md-6">
-     					<RaisedButton
-								target="_blank"
-								label="Analyse"
-								labelPosition="before"
-								secondary={true}
-								style={styles.button}
-								icon={<KeyboardArrowRight/>}
-							/>
-     				</div>
-     			</div>
-					*/
+

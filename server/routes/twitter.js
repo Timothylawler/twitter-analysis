@@ -118,6 +118,10 @@ twitter.get("/search", function(req, res){
 				
 				//	return when done with the stuff above. nice comment bruh
 				Promise.all(parse).then(function(){
+					
+					//	Get statistics for the data, i think so far that we should pass whole relevant shit here.
+					//	getStatistics(relevantShit).then(function(result){ });
+					
 					//res.end(JSON.stringify(self.boards));
 					//console.log(self.relevantShit);
 					res.send(JSON.stringify(relevantShit));	
@@ -145,6 +149,30 @@ twitter.get("/testRoute", function(req, res){
 	});
 	
 });
+
+function getStatistics(data){
+	return new Promise(function(fulfill, reject){
+		
+		if(data!= undefined){
+			//	Group the data
+			let groups = data.map(function(item, i){
+				return new Promise(function(fulfill, reject){
+					//	Get items polarity(that is what we call group here)
+					
+					//	Get certainity? of the polarity
+					
+					
+				});
+			});
+			
+			Promise.all(groups).then(function(){
+				//	Dra snitt on certainity for each polarity group
+			});
+		}
+		
+		reject("No statistics can be made on empty data");
+	})
+}
 
 /*	call aylient/sentiment to analyse passed data based on sentiment	*/
 function analyseSentiment(data){
