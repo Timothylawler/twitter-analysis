@@ -17,6 +17,7 @@ const styles = {
     height: "100%",
     overflowY: 'auto',
   },
+	
 };
 
 class Tweets extends Component {
@@ -27,6 +28,8 @@ class Tweets extends Component {
 		}
 		console.log("TWEETS CONSTRUCTOR:" , props);
 	}
+	
+	
 	
   render() {
 		console.log("IN TWEETS: ", this.state.tweets);

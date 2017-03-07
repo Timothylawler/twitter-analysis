@@ -7,6 +7,18 @@ import Paper from 'material-ui/Paper';
 const styles = {
 	tweet: {
 		margin: 8,
+	},
+	negative: {
+		backgroundColor: "#ff4949"
+	},
+	neutral: {
+		backgroundColor: "#ffce00"
+	},
+	positive: {
+		backgroundColor: "#95fd66"
+	},
+	defaultStyle: {
+		
 	}
 }
 
@@ -16,7 +28,7 @@ class Tweet extends Component {
 		/* REMOVE THIS WHEN BACK TO SENTIMENT! */
 		let twitStuff = props.data;
 		twitStuff.sentiment = {
-			"polarity": "neutral",
+			"polarity": "positive",
 			"subjectivity": "subjective",
 			"text": "RT @20committee: I'm confident that any SERIOUS investigation of #TrumpRussia will find enough intel to end Trump's admin &amp; send people to…",
 			"polarity_confidence": 0.6273645162582397,
@@ -61,20 +73,36 @@ class Tweet extends Component {
 						<p>{text}</p>
 						<hr/>
 						<p>Subjectivity confidence: {sentiment.polarity_confidence.toFixed(3)}</p>
+						<p>Favorites: {favorites}, Retweets: {retweets}</p>
 					</div>
 				);
 				break;
 		}
 	}
 	
+	getBackgroundColor(){
+		switch(this.state.tweet.sentiment.polarity){
+			case "neutral":
+				return styles.neutral;
+			case "positive":
+				return styles.positive;
+			case "negative":
+				return styles.negative;
+			default:
+				return styles.defaultStyle;
+		}
+	}
+	
+	/*
+	onMouseOver={this.setHover} onMouseLeave={this.setNotHover}
+	*/
 	
 	
 	render() {
 		
-		
     return (
       <div className="" style={styles.tweet}>
-      	<Paper zDepth={1} className="center tweet-card" onMouseOver={this.setHover} onMouseLeave={this.setNotHover}>
+      	<Paper zDepth={1} className="center tweet-card" style={this.getBackgroundColor()}>
       		{this.getContent()}
       	</Paper>
       </div>
