@@ -24,7 +24,7 @@ const client = new Twitter({
 const dummy = {
 	"tweetList": [
     {
-      "id": 839475755105022000,
+      "id": 1,
       "created": "Wed Mar 08 13:59:51 +0000 2017",
       "text": "Just loved @amtrac - Informal Disco https://t.co/2ODQNHzOuG on @hypem",
       "user": {
@@ -45,7 +45,7 @@ const dummy = {
       }
     },
     {
-      "id": 839475761669107700,
+      "id": 2,
       "created": "Wed Mar 08 13:59:52 +0000 2017",
       "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
       "user": {
@@ -66,7 +66,7 @@ const dummy = {
       }
     },
     {
-      "id": 839475761669107700,
+      "id": 3,
       "created": "Wed Mar 08 13:59:52 +0000 2017",
       "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
       "user": {
@@ -79,7 +79,7 @@ const dummy = {
       "favorites": 0,
       "retweets": 1,
       "sentiment": {
-        "polarity": "neutral",
+        "polarity": "negative",
         "subjectivity": "subjective",
         "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
         "polarity_confidence": 0.8161288499832153,
@@ -87,7 +87,7 @@ const dummy = {
       }
     },
     {
-      "id": 839475761669107700,
+      "id": 4,
       "created": "Wed Mar 08 13:59:52 +0000 2017",
       "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
       "user": {
@@ -223,6 +223,8 @@ twitter.get("/search", function(req, res){
 		res.status(400).send("No search term passed");
 	}
 });
+
+
 
 
 /*	call aylient/sentiment to analyse passed data based on sentiment	*/

@@ -64,5 +64,17 @@ aylien.get("/", function(req, res){
 	res.end(JSON.stringify(testObj));
 });
 
+aylien.get("/entities", function(req, res){
+	textapi.entities({
+		text: 'ACME corp was founded by John Smith in Chicago.'
+	}, function(error, response) {
+		if (error === null) {
+			Object.keys(response.entities).forEach(function(e) {
+				console.log(e + ": " + response.entities[e].join(","));
+			});
+			res.send(response);
+		}
+	});
+});
 
 module.exports = aylien;
