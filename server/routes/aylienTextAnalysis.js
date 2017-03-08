@@ -49,7 +49,6 @@ aylien.get("/sentiment", function(req, res){
 			'text' : text
 		}, function(error, response){
 			if(!error){
-				console.log(response);
 				res.status(200).send(response);
 			} else{
 				res.status(400).send(error);

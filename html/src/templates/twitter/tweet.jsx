@@ -26,14 +26,14 @@ class Tweet extends Component {
   constructor(props){
 		super(props);
 		/* REMOVE THIS WHEN BACK TO SENTIMENT! */
-		let twitStuff = props.data;
+		/*let twitStuff = props.data;
 		twitStuff.sentiment = {
 			"polarity": "positive",
 			"subjectivity": "subjective",
 			"text": "RT @20committee: I'm confident that any SERIOUS investigation of #TrumpRussia will find enough intel to end Trump's admin &amp; send people to…",
 			"polarity_confidence": 0.6273645162582397,
 			"subjectivity_confidence": 1
-		};
+		};*/
 		/**/
 		this.state={
 			hover: false,

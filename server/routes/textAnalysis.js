@@ -35,7 +35,6 @@ textAnalysis.post("/sentiment", function(req, res){
 		var url = baseUrl + extension + "&text=" + text;
 		request(url, function(error, data){
 			if(!error && data.statusCode == 200){
-				
 				res.end(data.body);
 			} else {
 				console.log("error: ", error);

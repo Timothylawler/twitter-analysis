@@ -3,6 +3,7 @@ var twitter = express.Router();
 
 const request = require('request');
 const Twitter = require('twitter');
+const async = require('async');
 
 
 const keys = {
@@ -10,7 +11,7 @@ const keys = {
 	secret : "XzelgSC7dEgQebXKYWvyYea7vW4S2GWCnlUGpn0xuVXW2mMqkN",
 	access_token : "806807637463445509-8pOFWnsQc9wofxe5FBxgmFqRl8AULP0",
 	access_token_secret : "b7iz7EogQgFaJsbRiRYTuHzDvr999ItqPdi8Y09m1DYOR",
-}
+};
 
 /* Twitter oauth object */
 const client = new Twitter({
@@ -19,6 +20,95 @@ const client = new Twitter({
   access_token_key: keys.access_token,
   access_token_secret: keys.access_token_secret
 });
+
+const dummy = {
+	"tweetList": [
+    {
+      "id": 839475755105022000,
+      "created": "Wed Mar 08 13:59:51 +0000 2017",
+      "text": "Just loved @amtrac - Informal Disco https://t.co/2ODQNHzOuG on @hypem",
+      "user": {
+        "name": "Ceasar Nilhag",
+        "screen_name": "ceasarnilhag",
+        "statuses_count": 4582,
+        "profile_image": "http://pbs.twimg.com/profile_images/378800000476909395/a269b138cc2e2fbcd13a820e1f063800_normal.jpeg",
+        "profile_image_https": "https://pbs.twimg.com/profile_images/378800000476909395/a269b138cc2e2fbcd13a820e1f063800_normal.jpeg"
+      },
+      "favorites": 0,
+      "retweets": 0,
+      "sentiment": {
+        "polarity": "neutral",
+        "subjectivity": "objective",
+        "text": "Just loved @amtrac - Informal Disco https://t.co/2ODQNHzOuG on @hypem",
+        "polarity_confidence": 0.9454591274261475,
+        "subjectivity_confidence": 0.9993181747182511
+      }
+    },
+    {
+      "id": 839475761669107700,
+      "created": "Wed Mar 08 13:59:52 +0000 2017",
+      "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
+      "user": {
+        "name": "Siempre 88.9",
+        "screen_name": "Siempre889",
+        "statuses_count": 207947,
+        "profile_image": "http://pbs.twimg.com/profile_images/750035270716710916/b7gWQVqm_normal.jpg",
+        "profile_image_https": "https://pbs.twimg.com/profile_images/750035270716710916/b7gWQVqm_normal.jpg"
+      },
+      "favorites": 0,
+      "retweets": 1,
+      "sentiment": {
+        "polarity": "neutral",
+        "subjectivity": "subjective",
+        "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
+        "polarity_confidence": 0.8161288499832153,
+        "subjectivity_confidence": 0.9999999999999947
+      }
+    },
+    {
+      "id": 839475761669107700,
+      "created": "Wed Mar 08 13:59:52 +0000 2017",
+      "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
+      "user": {
+        "name": "Siempre 88.9",
+        "screen_name": "Siempre889",
+        "statuses_count": 207947,
+        "profile_image": "http://pbs.twimg.com/profile_images/750035270716710916/b7gWQVqm_normal.jpg",
+        "profile_image_https": "https://pbs.twimg.com/profile_images/750035270716710916/b7gWQVqm_normal.jpg"
+      },
+      "favorites": 0,
+      "retweets": 1,
+      "sentiment": {
+        "polarity": "neutral",
+        "subjectivity": "subjective",
+        "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
+        "polarity_confidence": 0.8161288499832153,
+        "subjectivity_confidence": 0.9999999999999947
+      }
+    },
+    {
+      "id": 839475761669107700,
+      "created": "Wed Mar 08 13:59:52 +0000 2017",
+      "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
+      "user": {
+        "name": "Siempre 88.9",
+        "screen_name": "Siempre889",
+        "statuses_count": 207947,
+        "profile_image": "http://pbs.twimg.com/profile_images/750035270716710916/b7gWQVqm_normal.jpg",
+        "profile_image_https": "https://pbs.twimg.com/profile_images/750035270716710916/b7gWQVqm_normal.jpg"
+      },
+      "favorites": 0,
+      "retweets": 1,
+      "sentiment": {
+        "polarity": "neutral",
+        "subjectivity": "subjective",
+        "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
+        "polarity_confidence": 0.8161288499832153,
+        "subjectivity_confidence": 0.9999999999999947
+      }
+    }
+	]
+};
 
 twitter.get("/search", function(req, res){
 	//console.log(req.query);
@@ -99,32 +189,28 @@ twitter.get("/search", function(req, res){
 						}
 						
 						//	Call to analyse the text right away
+						/*	COMMENT THIS BLOCK WHEN NOT ANALYSING! */
 						/*analyseSentiment(item.text).then(function(result){
 							if(result.status == 200){
-								console.log(result.data);
 								tweet.sentiment = JSON.parse(result.data);
 								
 							} else{
 								tweet.sentiment = "N/A";
 							}
-							self.relevantShit.push(tweet);
-							resolve();
-							
-						});*/
+							//self.relevantShit.push(tweet);
 							self.relevantShit.tweetList.push(tweet);
 							resolve();
+						});*/
+						/*	UNCOMMENT HERE WHEN NOT ANALYSING! */
+						self.relevantShit.tweetList.push(tweet);
+						resolve();
 					});
 				});
 				
 				//	return when done with the stuff above. nice comment bruh
 				Promise.all(parse).then(function(){
-					
-					//	Get statistics for the data, i think so far that we should pass whole relevant shit here.
-					//	getStatistics(relevantShit).then(function(result){ });
-					
-					//res.end(JSON.stringify(self.boards));
-					//console.log(self.relevantShit);
-					res.send(JSON.stringify(relevantShit));	
+					self.relevantShit = dummy;
+					res.send(JSON.stringify(self.relevantShit));
 				});
 
 			} else{
@@ -132,47 +218,12 @@ twitter.get("/search", function(req, res){
 				res.status(500).send("error connecting to twitter")
 			}
 			
-			
 		});
 	} else{
 		res.status(400).send("No search term passed");
 	}
 });
 
-twitter.get("/testRoute", function(req, res){
-	var data = req.query.text;
-	
-	analyseSentiment(data).then(function(result){
-		console.log("Promise:", result);
-		if(result.status == 200)
-			res.end(result.data);
-	});
-	
-});
-
-function getStatistics(data){
-	return new Promise(function(fulfill, reject){
-		
-		if(data!= undefined){
-			//	Group the data
-			let groups = data.map(function(item, i){
-				return new Promise(function(fulfill, reject){
-					//	Get items polarity(that is what we call group here)
-					
-					//	Get certainity? of the polarity
-					
-					
-				});
-			});
-			
-			Promise.all(groups).then(function(){
-				//	Dra snitt on certainity for each polarity group
-			});
-		}
-		
-		reject("No statistics can be made on empty data");
-	})
-}
 
 /*	call aylient/sentiment to analyse passed data based on sentiment	*/
 function analyseSentiment(data){
@@ -181,7 +232,6 @@ function analyseSentiment(data){
 	};
 	return new Promise(function(fulfill, reject){
 		try{
-			console.log("DATA: ", params);
 			request.get({url:"http://localhost:4000/aylien/sentiment", qs: params}, function(error, response, data){
 				//console.log("Error: ", error);
 				//console.log("Response: ", response);
@@ -197,19 +247,24 @@ function analyseSentiment(data){
 		}
 		
 	});
-	
 }
 
 
 
+twitter.get("/testRoute", function(req, res){
+	var data = req.query.text;
+	
+	analyseSentiment(data).then(function(result){
+		console.log("Promise:", result);
+		if(result.status == 200)
+			res.end(result.data);
+	});
+	
+});
 
 twitter.get("/test", function(req, res){
 	client.get("account/verify_credentials", function(error, tweets, resp){
-		//res.send(JSON.stringify("Error: ", error));
 		res.send(JSON.stringify(resp));
-		//res.send(JSON.stringify("Resp: ", resp));
-		//console.log("Tweets: ", tweets);
-		//console.log("Resp: ", resp);
 	});
 });
 
