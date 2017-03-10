@@ -13,6 +13,7 @@ class App extends Component {
           <h2>Twitter text analysis</h2>
         </div>
         <div className="container">
+				
 				{
 					this.props.children || <Twitter />
 				}
