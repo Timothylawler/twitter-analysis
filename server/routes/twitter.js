@@ -22,89 +22,209 @@ const client = new Twitter({
 });
 
 const dummy = {
-	"tweetList": [
+	 "tweetList": [
     {
-      "id": 1,
-      "created": "Wed Mar 08 13:59:51 +0000 2017",
-      "text": "Just loved @amtrac - Informal Disco https://t.co/2ODQNHzOuG on @hypem",
+      "id": 840115504077463600,
+      "created": "Fri Mar 10 08:21:59 +0000 2017",
+      "text": "Trump Might Want To Build A Hyperloop. What The Heck Is A Hyperloop? https://t.co/deL0hlbYjH",
       "user": {
-        "name": "Ceasar Nilhag",
-        "screen_name": "ceasarnilhag",
-        "statuses_count": 4582,
-        "profile_image": "http://pbs.twimg.com/profile_images/378800000476909395/a269b138cc2e2fbcd13a820e1f063800_normal.jpeg",
-        "profile_image_https": "https://pbs.twimg.com/profile_images/378800000476909395/a269b138cc2e2fbcd13a820e1f063800_normal.jpeg"
+        "name": "jacoo",
+        "screen_name": "pjkate",
+        "statuses_count": 38500,
+        "profile_image": "http://pbs.twimg.com/profile_images/548366910681653248/7EaCr4Bm_normal.jpeg",
+        "profile_image_https": "https://pbs.twimg.com/profile_images/548366910681653248/7EaCr4Bm_normal.jpeg"
       },
       "favorites": 0,
       "retweets": 0,
       "sentiment": {
         "polarity": "neutral",
         "subjectivity": "objective",
-        "text": "Just loved @amtrac - Informal Disco https://t.co/2ODQNHzOuG on @hypem",
-        "polarity_confidence": 0.9454591274261475,
-        "subjectivity_confidence": 0.9993181747182511
-      }
-    },
-    {
-      "id": 2,
-      "created": "Wed Mar 08 13:59:52 +0000 2017",
-      "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
-      "user": {
-        "name": "Siempre 88.9",
-        "screen_name": "Siempre889",
-        "statuses_count": 207947,
-        "profile_image": "http://pbs.twimg.com/profile_images/750035270716710916/b7gWQVqm_normal.jpg",
-        "profile_image_https": "https://pbs.twimg.com/profile_images/750035270716710916/b7gWQVqm_normal.jpg"
+        "text": "Trump Might Want To Build A Hyperloop. What The Heck Is A Hyperloop? https://t.co/deL0hlbYjH",
+        "polarity_confidence": 0.8848863840103149,
+        "subjectivity_confidence": 0.9999999984432126
       },
-      "favorites": 0,
-      "retweets": 1,
-      "sentiment": {
-        "polarity": "neutral",
-        "subjectivity": "subjective",
-        "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
-        "polarity_confidence": 0.8161288499832153,
-        "subjectivity_confidence": 0.9999999999999947
+      "entities": {
+        "text": "Trump Might Want To Build A Hyperloop. What The Heck Is A Hyperloop? https://t.co/deL0hlbYjH",
+        "language": "en",
+        "entities": {
+          "keyword": [
+            "Hyperloop",
+            "Heck",
+            "https://t.co/deL0hlbYjH",
+            "Trump"
+          ],
+          "url": [
+            "https://t.co/deL0hlbYjH"
+          ]
+        }
       }
     },
     {
-      "id": 3,
-      "created": "Wed Mar 08 13:59:52 +0000 2017",
-      "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
+      "id": 840115502160605200,
+      "created": "Fri Mar 10 08:21:58 +0000 2017",
+      "text": "RT @navedsylhet: @realdonaldtrump @vp @KellyannePolls \nWon't Allow H-1B Visa Holders To Replace US Workers: Donald Trump - NDTV https://t.c…",
       "user": {
-        "name": "Siempre 88.9",
-        "screen_name": "Siempre889",
-        "statuses_count": 207947,
-        "profile_image": "http://pbs.twimg.com/profile_images/750035270716710916/b7gWQVqm_normal.jpg",
-        "profile_image_https": "https://pbs.twimg.com/profile_images/750035270716710916/b7gWQVqm_normal.jpg"
+        "name": "Naved",
+        "screen_name": "navedsylhet",
+        "statuses_count": 142,
+        "profile_image": "http://pbs.twimg.com/profile_images/823631895078391808/_nLtw9LZ_normal.jpg",
+        "profile_image_https": "https://pbs.twimg.com/profile_images/823631895078391808/_nLtw9LZ_normal.jpg"
       },
       "favorites": 0,
       "retweets": 1,
       "sentiment": {
         "polarity": "negative",
-        "subjectivity": "subjective",
-        "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
-        "polarity_confidence": 0.8161288499832153,
-        "subjectivity_confidence": 0.9999999999999947
+        "subjectivity": "objective",
+        "text": "RT @navedsylhet: @realdonaldtrump @vp @KellyannePolls \nWon't Allow H-1B Visa Holders To Replace US Workers: Donald Trump - NDTV https://t.c…",
+        "polarity_confidence": 0.7075761556625366,
+        "subjectivity_confidence": 0.9999999940614477
+      },
+      "entities": {
+        "text": "RT @navedsylhet: @realdonaldtrump @vp @KellyannePolls \nWon't Allow H-1B Visa Holders To Replace US Workers: Donald Trump - NDTV https://t.c…",
+        "language": "en",
+        "entities": {
+          "keyword": [
+            "Visa",
+            "Holders",
+            "Donald",
+            "H-1B",
+            "Trump",
+            "@KellyannePolls",
+            "NDTV",
+            "@realdonaldtrump",
+            "@navedsylhet",
+            "https://t.c…"
+          ],
+          "url": [
+            "https://t.c…"
+          ],
+          "organization": [
+            "Visa Holders",
+            "US Workers"
+          ],
+          "person": [
+            "Donald Trump"
+          ]
+        }
       }
     },
     {
-      "id": 4,
-      "created": "Wed Mar 08 13:59:52 +0000 2017",
-      "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
+      "id": 840115503104311300,
+      "created": "Fri Mar 10 08:21:59 +0000 2017",
+      "text": "RT @PlagueOfFrogs: THE FLAG HAS BEEN CAPTURED AND REPLACED WITH TRUMP SHIRT AND HAT. FROGTWITTER WINS AGAIN. SHIA BTFO #HWNDU #HeWillNotDiv…",
       "user": {
-        "name": "Siempre 88.9",
-        "screen_name": "Siempre889",
-        "statuses_count": 207947,
-        "profile_image": "http://pbs.twimg.com/profile_images/750035270716710916/b7gWQVqm_normal.jpg",
-        "profile_image_https": "https://pbs.twimg.com/profile_images/750035270716710916/b7gWQVqm_normal.jpg"
+        "name": "Nemo",
+        "screen_name": "Kimdracula76",
+        "statuses_count": 533,
+        "profile_image": "http://pbs.twimg.com/profile_images/826905934647562240/avnH6ucR_normal.jpg",
+        "profile_image_https": "https://pbs.twimg.com/profile_images/826905934647562240/avnH6ucR_normal.jpg"
       },
       "favorites": 0,
-      "retweets": 1,
+      "retweets": 182,
       "sentiment": {
-        "polarity": "neutral",
+        "polarity": "negative",
         "subjectivity": "subjective",
-        "text": "RT @LaloGonzalezM: Joaquín #Sabina presentará su nuevo disco 💿 en el Metro 🚋  de Madrid 🇪🇸 https://t.co/VZTLJ8wgiX vía @siempre889",
-        "polarity_confidence": 0.8161288499832153,
-        "subjectivity_confidence": 0.9999999999999947
+        "text": "RT @PlagueOfFrogs: THE FLAG HAS BEEN CAPTURED AND REPLACED WITH TRUMP SHIRT AND HAT. FROGTWITTER WINS AGAIN. SHIA BTFO #HWNDU #HeWillNotDiv…",
+        "polarity_confidence": 0.40990954637527466,
+        "subjectivity_confidence": 1
+      },
+      "entities": {
+        "text": "RT @PlagueOfFrogs: THE FLAG HAS BEEN CAPTURED AND REPLACED WITH TRUMP SHIRT AND HAT. FROGTWITTER WINS AGAIN. SHIA BTFO #HWNDU #HeWillNotDiv…",
+        "language": "en",
+        "entities": {
+          "keyword": [
+            "FROGTWITTER",
+            "SHIA",
+            "SHIRT",
+            "TRUMP",
+            "BTFO",
+            "FLAG",
+            "#HWNDU",
+            "#HeWillNotDiv",
+            "@PlagueOfFrogs"
+          ]
+        }
+      }
+    },
+    {
+      "id": 840115501858664400,
+      "created": "Fri Mar 10 08:21:58 +0000 2017",
+      "text": "RT @owillis: there's no political downside to trump continued denial of media coverage. the press doesnt ever retaliate, and hires his cron…",
+      "user": {
+        "name": "Leonie Kline-Marante",
+        "screen_name": "KlineMarante",
+        "statuses_count": 913,
+        "profile_image": "http://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png",
+        "profile_image_https": "https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png"
+      },
+      "favorites": 0,
+      "retweets": 40,
+      "sentiment": {
+        "polarity": "negative",
+        "subjectivity": "objective",
+        "text": "RT @owillis: there's no political downside to trump continued denial of media coverage. the press doesnt ever retaliate, and hires his cron…",
+        "polarity_confidence": 0.8411341309547424,
+        "subjectivity_confidence": 0.999999999468892
+      },
+      "entities": {
+        "text": "RT @owillis: there's no political downside to trump continued denial of media coverage. the press doesnt ever retaliate, and hires his cron…",
+        "language": "en",
+        "entities": {
+          "keyword": [
+            "media",
+            "coverage",
+            "denial",
+            "continued",
+            "press",
+            "doesnt",
+            "downside",
+            "cron",
+            "political"
+          ]
+        }
+      }
+    },
+    {
+      "id": 840115504220057600,
+      "created": "Fri Mar 10 08:21:59 +0000 2017",
+      "text": "RT @SallyDeal4: #DemForce #resist #TheResistance #TrumpRussia #Russiagate WikiLeaks has joined the Trump admin. 45 remains silent  https://…",
+      "user": {
+        "name": "Loren K Laney",
+        "screen_name": "a2mech2000_k",
+        "statuses_count": 28210,
+        "profile_image": "http://pbs.twimg.com/profile_images/808476075881730048/WF5bHCJO_normal.jpg",
+        "profile_image_https": "https://pbs.twimg.com/profile_images/808476075881730048/WF5bHCJO_normal.jpg"
+      },
+      "favorites": 0,
+      "retweets": 7,
+      "sentiment": {
+        "polarity": "negative",
+        "subjectivity": "objective",
+        "text": "RT @SallyDeal4: #DemForce #resist #TheResistance #TrumpRussia #Russiagate WikiLeaks has joined the Trump admin. 45 remains silent  https://…",
+        "polarity_confidence": 0.4827258586883545,
+        "subjectivity_confidence": 1
+      },
+      "entities": {
+        "text": "RT @SallyDeal4: #DemForce #resist #TheResistance #TrumpRussia #Russiagate WikiLeaks has joined the Trump admin. 45 remains silent  https://…",
+        "language": "en",
+        "entities": {
+          "keyword": [
+            "#Russiagate",
+            "WikiLeaks",
+            "#TrumpRussia",
+            "Trump",
+            "#TheResistance",
+            "#resist",
+            "admin",
+            "#DemForce",
+            "silent",
+            "@SallyDeal4",
+            "https"
+          ],
+          "organization": [
+            "Trump"
+          ]
+        }
       }
     }
 	]
@@ -190,26 +310,36 @@ twitter.get("/search", function(req, res){
 						
 						//	Call to analyse the text right away
 						/*	COMMENT THIS BLOCK WHEN NOT ANALYSING! */
-						/*analyseSentiment(item.text).then(function(result){
-							if(result.status == 200){
-								tweet.sentiment = JSON.parse(result.data);
-								
-							} else{
-								tweet.sentiment = "N/A";
-							}
-							//self.relevantShit.push(tweet);
-							self.relevantShit.tweetList.push(tweet);
+						try{
+							analyseSentiment(item.text).then(function(result){
+								if(result.status == 200){
+									tweet.sentiment = JSON.parse(result.data);
+								} else{
+									tweet.sentiment = "N/A";
+								}
+
+								extractEntities(item.text).then(function(result){
+									if(result.status == 200){
+										tweet.entities = JSON.parse(result.data);
+									} else{
+										tweet.entities = "N/A";
+									}
+									self.relevantShit.tweetList.push(tweet);
+									resolve();
+								});
+							});
+						} catch(ex){
 							resolve();
-						});*/
+						}
 						/*	UNCOMMENT HERE WHEN NOT ANALYSING! */
-						self.relevantShit.tweetList.push(tweet);
-						resolve();
+						//self.relevantShit.tweetList.push(tweet);
+						//resolve();
 					});
 				});
 				
 				//	return when done with the stuff above. nice comment bruh
 				Promise.all(parse).then(function(){
-					self.relevantShit = dummy;
+					//self.relevantShit = dummy;
 					res.send(JSON.stringify(self.relevantShit));
 				});
 
@@ -248,6 +378,28 @@ function analyseSentiment(data){
 			reject({status: "400", data: ex});
 		}
 		
+	});
+};
+
+/*	Calls aylien/entities to extract keywords from a string
+ *	Returns promise
+ */
+function extractEntities(data){
+	const params = {
+		text: data
+	};
+	return new Promise(function(fulfill, reject){
+		try{
+			request.get({url: "http://localhost:4000/aylien/entities", qs: params}, function(error, response, data){
+				if(error){
+					reject({status:"400", data: error});
+				} else {
+					fulfill({status: "200", data: data});
+				}
+			});
+		} catch(ex){
+			reject({status: "400", data: ex});
+		}
 	});
 }
 

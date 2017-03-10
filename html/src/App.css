@@ -71,9 +71,17 @@
 
 .App-header {
   background-color: #222;
-  height: 75px;
+  height: 120px;
   padding: 20px;
   color: white;
+}
+
+.App-logo{
+	position:absolute;
+	top: 22px;
+	left: 75px;
+	height: 75px;
+	width: auto;
 }
 
 

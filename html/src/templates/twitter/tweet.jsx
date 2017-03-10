@@ -57,7 +57,7 @@ class Tweet extends Component {
 	}
 	
 	getContent(){
-		const {created, text, user, favorites, retweets, sentiment} = this.state.tweet;
+		const {created, text, entities, user, favorites, retweets, sentiment} = this.state.tweet;
 		switch(this.state.hover){
 			case true:
 				return(
@@ -67,12 +67,37 @@ class Tweet extends Component {
 				);
 				break;
 			case false:
+				var keywordArr, urlArr = undefined;
+				if(entities.entities != undefined){
+					if(entities.entities.keyword != undefined && entities.entities.keyword.length > 0){
+						keywordArr = entities.entities.keyword.map(function(item, i){
+							if(item.split(" ").length == 1){
+								return (" " + item + ", ");
+							}
+						});
+					}
+					
+					if(entities.entities.url != undefined){
+						urlArr = entities.entities.url.map(function(item, i){
+							return (" " + item + " ");
+						});
+					}
+				}
 				return (
 					<div>
 						<h3>{sentiment.subjectivity}, {sentiment.polarity}</h3>
 						<p>{text}</p>
+						{
+							keywordArr !== undefined && 
+								(<p>Keywords: <b>{keywordArr}</b></p>)
+						} 
+						{
+							urlArr !== undefined &&
+								(<p>Urls: <a href={urlArr[0]}>{urlArr}</a></p>)
+						}
 						<hr/>
-						<p>Subjectivity confidence: {sentiment.polarity_confidence.toFixed(3)}</p>
+						<p>Subjectivity confidence: {sentiment.subjectivity_confidence.toFixed(3) * 100}%</p>
+						<p>polarity confidence: {sentiment.polarity_confidence.toFixed(3) * 100}%</p>
 						<p>Favorites: {favorites}, Retweets: {retweets}</p>
 					</div>
 				);

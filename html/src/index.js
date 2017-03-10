@@ -15,10 +15,7 @@ injectTapEventPlugin();
 ReactDOM.render(
   <MuiThemeProvider>
 	<Router history={browserHistory}>
-		<Route path="/" component={App}>
-			
-			<Route path="twitter" component={Twitter}/>
-			
+		<Route path="/" component={App}>			
 	
 			<Route path="*" component={FourOFour}/>
 		</Route>

@@ -65,16 +65,20 @@ aylien.get("/", function(req, res){
 });
 
 aylien.get("/entities", function(req, res){
-	textapi.entities({
-		text: 'ACME corp was founded by John Smith in Chicago.'
-	}, function(error, response) {
-		if (error === null) {
-			Object.keys(response.entities).forEach(function(e) {
-				console.log(e + ": " + response.entities[e].join(","));
-			});
-			res.send(response);
-		}
-	});
+	var text = req.query.text;
+	if(text != undefined){
+		textapi.entities({
+			text: text
+		}, function(error, response) {
+			if (error === null) {
+				res.send(response);
+			} else{
+				res.status(500).send("No entities received.");
+			}
+		});
+	} else {
+		res.status(400).send("No text passed");
+	}
 });
 
 module.exports = aylien;
