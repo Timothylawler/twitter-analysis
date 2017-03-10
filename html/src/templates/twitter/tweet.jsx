@@ -9,13 +9,13 @@ const styles = {
 		margin: 8,
 	},
 	negative: {
-		backgroundColor: "#ff4949"
+		backgroundColor: "#ff2a2a"
 	},
 	neutral: {
-		backgroundColor: "#ffce00"
+		backgroundColor: "#ffe300"
 	},
 	positive: {
-		backgroundColor: "#95fd66"
+		backgroundColor: "#0fe22c"
 	},
 	defaultStyle: {
 		

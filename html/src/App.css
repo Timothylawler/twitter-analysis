@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Slab:700|Merienda');
+@import url('https://fonts.googleapis.com/css?family=Merienda|News+Cycle:700');
 .App {
   text-align: center;
 }
@@ -8,10 +8,10 @@
   height: 120px;
   padding: 20px;
   color: white;
-font-family: 'Josefin Slab', serif;
+	font-family: 'News Cycle', sans-serif;
 }
 .App-header > h2 {
-	font-size: 48px;
+	font-size: 52px;
 	font-weight: 700;
 }
 

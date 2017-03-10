@@ -55,7 +55,7 @@ class Tweets extends Component {
 						style={styles.gridList}
 						cols={2}
 					>
-						<Subheader key="tweet-subHeader">December</Subheader>
+						<Subheader key="tweet-subHeader">Tweets</Subheader>
 					
 						{tweetComps}
 					</GridList>
