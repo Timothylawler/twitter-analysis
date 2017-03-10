@@ -1,5 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab:700|Merienda');
 .App {
   text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 120px;
+  padding: 20px;
+  color: white;
+font-family: 'Josefin Slab', serif;
+}
+.App-header > h2 {
+	font-size: 48px;
+	font-weight: 700;
 }
 
 .container{
@@ -8,6 +21,12 @@
 
 .padding-lr-12{
 	
+}
+
+.step-menu-content{
+	font-family: 'Merienda', cursive;
+	color: #4c4c4c;
+	font-size: 18px;
 }
 
 .tweet-card{
@@ -69,12 +88,7 @@
 }
 
 
-.App-header {
-  background-color: #222;
-  height: 120px;
-  padding: 20px;
-  color: white;
-}
+
 
 .App-logo{
 	position:absolute;

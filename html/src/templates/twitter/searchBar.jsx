@@ -213,7 +213,7 @@ class SearchBar extends Component {
 					transitionLeaveTimeout={500}>
 						{
 							!this.state.hidden && (
-								<div key="menu-content"  style={styles.contentStyle}>
+								<div key="menu-content" className="step-menu-content" style={styles.contentStyle}>
 									{/* NOT HIDDEN */}
 									{this.getStepContent(stepIndex)}
 									
