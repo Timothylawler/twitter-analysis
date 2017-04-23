@@ -317,7 +317,7 @@ twitter.get("/search", function(req, res){
 								} else{
 									tweet.sentiment = "N/A";
 								}
-
+								
 								extractEntities(item.text).then(function(result){
 									if(result.status == 200){
 										tweet.entities = JSON.parse(result.data);
